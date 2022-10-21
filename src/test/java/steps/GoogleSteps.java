@@ -7,24 +7,24 @@ import pages.GooglePage;
 
 import static steps.BaseSteps.openBrowser;
 
-public class GoogleSteps {
+public class GoogleSteps{
 
-        @Dado("que acesso Google")
-        public void accessGoogle() {
-                String GoogleUrl = "https://www.google.com/";
-                openBrowser(GoogleUrl);
-        }
+	@Dado("que acesso Google")
+	public void que_acesso_Google() {
+		String GoogleUrl = "https://www.google.com/";
+		openBrowser(GoogleUrl);
+	}
 
-        @Quando("pesquiso o item {string}")
-        public void pesquisoItem(String item) {
-                GooglePage googleMainPage = new GooglePage();
-                googleMainPage.pesquisarItem(item);
-        }
+	@Quando("pesquiso o item {string}")
+	public void pesquiso_o_item(String item) {
+		GooglePage googleMainPage = new GooglePage();
+		googleMainPage.pesquisarItem(item);
+	}
 
-        @Entao("verifico as imagens")
-        public void verificoImagens() {
-                GooglePage googleMainPage = new GooglePage();
-                googleMainPage.verificoImagens();
-        }
+	@Entao("verifico as imagens")
+	public void verifico_as_imagens() {
+		GooglePage googleMainPage = new GooglePage();
+		googleMainPage.verificoImagens();
+	}
 
 }

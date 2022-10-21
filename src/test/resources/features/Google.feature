@@ -3,10 +3,9 @@
 #@run
 Funcionalidade: Google
 
-  Contexto:
-    Dado que acesso Google
-
-  @run2
-  Cenario: Pesquisa Google
-    Quando pesquiso o item "Gatinhos"
-    Entao verifico as imagens
+Contexto:
+   Dado que acesso Google
+@run
+Cenario: Pesquisar no Google
+   Quando pesquiso o item "Gatinhos"
+   Entao verifico as imagens
