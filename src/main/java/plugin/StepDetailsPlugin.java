@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import cucumber.api.PickleStepTestStep;
-import cucumber.api.Scenario;
 import cucumber.api.TestCase;
 import cucumber.api.event.ConcurrentEventListener;
 import cucumber.api.event.EventHandler;
@@ -30,12 +29,13 @@ public class StepDetailsPlugin implements ConcurrentEventListener{
     public void setEventPublisher(EventPublisher publisher) {
         publisher.registerHandlerFor(TestStepFinished.class, stepHandler);
     }
-
-    
+        
+        
     private void handleTestStepFinished(TestStepFinished event) throws IOException {
         if (event.testStep instanceof PickleStepTestStep) {
             PickleStepTestStep testStep = (PickleStepTestStep) event.testStep;
             TestCase testCase = event.getTestCase();
+            
             String stepName = getStepName(testStep, testCase);
             
             Report.add(stepName, true);
@@ -46,6 +46,7 @@ public class StepDetailsPlugin implements ConcurrentEventListener{
     private String getStepName(PickleStepTestStep testStep, TestCase testCase) {
         String featureFilePath = testCase.getUri().substring(5);
         int stepLine = testStep.getStepLine() - 1;
+       
         return getStepKeywordFromFeatureFile(featureFilePath, stepLine) + " " + testStep.getStepText();
     }
 

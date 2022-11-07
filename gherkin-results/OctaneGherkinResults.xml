@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><features version="1">
-    <feature name="Google" path="src\test\resources\features\Google.feature" started="1666203649213" tag="">
+    <feature name="Google" path="src\test\resources\features\Google.feature" started="1667838749415" tag="">
         <file>
             <![CDATA[#language: pt
 #encoding: utf-8
@@ -9,16 +9,16 @@ Funcionalidade: Google
 Contexto:
    Dado que acesso Google
 @run
-Cenario: Pesquisar no Google imagens de gatinhos super fofos
+Cenario: pesquiso o item
    Quando pesquiso o item "Gatinhos"
    Entao verifico as imagens]]>
         </file>
         <scenarios>
-            <scenario name="Pesquisar no Google imagens de gatinhos super fofos">
+            <scenario name="pesquiso o item">
                 <steps>
-                    <step duration="2103723600" name="Dado que acesso Google" status="passed"/>
-                    <step duration="2936096900" name="Quando pesquiso o item &quot;Gatinhos&quot;" status="passed"/>
-                    <step duration="484300" name="Entao verifico as imagens" status="passed"/>
+                    <step duration="3834321200" name="Dado que acesso Google" status="passed"/>
+                    <step duration="4583562600" name="Quando pesquiso o item &quot;Gatinhos&quot;" status="passed"/>
+                    <step duration="1238800" name="Entao verifico as imagens" status="passed"/>
                 </steps>
             </scenario>
         </scenarios>

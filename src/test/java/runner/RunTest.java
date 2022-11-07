@@ -20,4 +20,6 @@ import org.junit.runner.RunWith;
         }
 )
 
-public class RunTest {}
+public class RunTest {
+    
+}

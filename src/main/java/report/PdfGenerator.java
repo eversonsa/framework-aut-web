@@ -4,40 +4,29 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
-
-
 import java.util.LinkedHashSet;
 
-
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import cucumber.api.Scenario;
 import model.Evidence;
 import model.Platform;
-import pageReport.PaginaFolhaDeRostoReport;
-import pageReport.PaginaPrintDoTestReport;
-import utils.PdfGetDataUtils;
+import pageReport.PageReportFrontHeader;
+import pageReport.PageReportTestContent;
 
 public class PdfGenerator {
 
     public Document document;
     
-    public PaginaFolhaDeRostoReport paginaFolhaRostoReport;
-    public PaginaPrintDoTestReport paginaPrintTesteReport;
+    public PageReportFrontHeader pageReportFrontHeader;
+    public PageReportTestContent pageReportTestContent;
     
     public PdfGenerator()
     {
-        this.paginaFolhaRostoReport = new PaginaFolhaDeRostoReport();
-        this.paginaPrintTesteReport = new PaginaPrintDoTestReport();
+        this.pageReportFrontHeader = new PageReportFrontHeader();
+        this.pageReportTestContent = new PageReportTestContent();
     }
     
     public void generate(String filename, LinkedHashSet<Evidence> evidenceList, Platform platform, Scenario scenario)
@@ -45,10 +34,11 @@ public class PdfGenerator {
         
         document = createDocument(filename, platform);
         
-        this.paginaFolhaRostoReport.criarCapaRelatorio(document, scenario);
-        this.paginaPrintTesteReport.createPages(evidenceList, scenario, document);
+        this.pageReportFrontHeader.createReportHeader(document, scenario);
+        this.pageReportTestContent.createPages(evidenceList, scenario, document);
         
        document.close();
+      
 
     }
 

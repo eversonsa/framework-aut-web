@@ -14,7 +14,7 @@ public class GoogleSteps{
 		String GoogleUrl = "https://www.google.com/";
 		openBrowser(GoogleUrl);
 	}
-
+	
 	@Quando("pesquiso o item {string}")
 	public void pesquiso_o_item(String item) {
 		GooglePage googleMainPage = new GooglePage();

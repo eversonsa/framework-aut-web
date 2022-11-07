@@ -19,7 +19,6 @@ import com.itextpdf.text.DocumentException;
 import cucumber.api.Scenario;
 import model.Evidence;
 import model.Platform;
-import utils.PdfGetDataUtils;
 
 public class Report {
     private static LinkedHashSet<Evidence> evidenceList;
@@ -53,9 +52,12 @@ public class Report {
     private static String getFilePath(Scenario scenario) throws IOException {
         String scenarioStatus = scenario.getStatus().name();
         String scenarioName = scenario.getName();
-        String filename = "[" + scenarioStatus.toUpperCase() + "] " + "paz" + " - " + scenarioName + ".pdf";
+        String filename;
+       
+            filename = "[" + scenarioStatus.toUpperCase() + "] "  + "teste" + " - " + scenarioName + ".pdf";
+       
 
-         Path resourceDirectory = Paths.get("src","test", "resources","test-results");
+        Path resourceDirectory = Paths.get("src","test", "resources","test-results");
         String path = resourceDirectory.toFile().getAbsolutePath();
         Files.createDirectories(Paths.get(path));
 
@@ -63,7 +65,7 @@ public class Report {
     }
 
     private static String getCurrentDate() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime now = LocalDateTime.now();
         return dtf.format(now);
     }

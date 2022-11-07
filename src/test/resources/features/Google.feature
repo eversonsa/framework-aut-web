@@ -6,6 +6,6 @@ Funcionalidade: Google
 Contexto:
    Dado que acesso Google
 @run
-Cenario: Pesquisar no Google
+Cenario: pesquiso o item
    Quando pesquiso o item "Gatinhos"
    Entao verifico as imagens

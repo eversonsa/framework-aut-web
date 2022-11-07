@@ -15,9 +15,8 @@ import com.itextpdf.text.Rectangle;
 
 import cucumber.api.Scenario;
 import model.Evidence;
-import utils.PdfGetDataUtils;
 
-public class PaginaPrintDoTestReport {
+public class PageReportTestContent {
     
    Document document;
 
