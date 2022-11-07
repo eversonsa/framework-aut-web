@@ -121,4 +121,10 @@ public class PageReportFrontHeader {
     }
 
 
+    public static String setTimeExecution(String currentDate) {
+        // TODO Auto-generated method stub
+        return currentDate;
+    }
+
+
 }

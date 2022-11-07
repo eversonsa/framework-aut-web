@@ -5,8 +5,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.LinkedHashSet;
 
 import org.apache.commons.io.FileUtils;
@@ -19,6 +23,7 @@ import com.itextpdf.text.DocumentException;
 import cucumber.api.Scenario;
 import model.Evidence;
 import model.Platform;
+import pageReport.PageReportFrontHeader;
 
 public class Report {
     private static LinkedHashSet<Evidence> evidenceList;
@@ -49,12 +54,14 @@ public class Report {
         }
     }
 
+  
     private static String getFilePath(Scenario scenario) throws IOException {
         String scenarioStatus = scenario.getStatus().name();
         String scenarioName = scenario.getName();
         String filename;
        
-            filename = "[" + scenarioStatus.toUpperCase() + "] "  + "teste" + " - " + scenarioName + ".pdf";
+            filename = "[" + scenarioStatus.toUpperCase() + "] " +
+            new SimpleDateFormat("- dd-MM-yyyy").format(new Date()) + " - " + scenarioName + ".pdf";
        
 
         Path resourceDirectory = Paths.get("src","test", "resources","test-results");
@@ -65,10 +72,12 @@ public class Report {
     }
 
     private static String getCurrentDate() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         return dtf.format(now);
     }
+    
+ 
 
     private static byte[] getByteImage() {
         byte[] image = null;
