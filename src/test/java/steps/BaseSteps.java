@@ -15,24 +15,16 @@ import utils.GlobalDriver;
 public class BaseSteps {
 
     protected static WebDriver driver;
-    protected static long startReportTimeExecution;
-    protected static long endReportTimeExecution;
 
     @Before
     public static void setup(Scenario scenario) {
         GlobalDriver.set();
         driver = GlobalDriver.get();
         Report.init(driver, Platform.WEB);
-        startReportTimeExecution = System.currentTimeMillis();
-
     }
 
     @After
     public static void finish(Scenario scenario) throws DocumentException {
-        endReportTimeExecution = System.currentTimeMillis();
-        long reportTotalTime = endReportTimeExecution - startReportTimeExecution;
-        PageReportFrontHeader.setTimeExecution(reportTotalTime);
-        
         Report.generatePDF(scenario);
         GlobalDriver.close();
 

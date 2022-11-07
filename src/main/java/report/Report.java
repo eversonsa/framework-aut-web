@@ -29,11 +29,15 @@ public class Report {
     private static LinkedHashSet<Evidence> evidenceList;
     private static WebDriver webDriver;
     private static Platform platformEnum;
+    
+    protected static long startReportTimeExecution;
+    protected static long endReportTimeExecution;
 
     public static void init(WebDriver driver, Platform platform) {
         evidenceList = new LinkedHashSet<>();
         webDriver = driver;
         platformEnum = platform;
+        startReportTimeExecution = System.currentTimeMillis();
     }
 
     public static void add(String description, boolean withScreenshot) throws IOException {
@@ -45,10 +49,14 @@ public class Report {
     }
 
     public static void generatePDF(Scenario scenario) throws DocumentException {
+        endReportTimeExecution = System.currentTimeMillis();
+        long reportTotalTime = endReportTimeExecution - startReportTimeExecution;
         try {
             String filePath = null;
             filePath = getFilePath(scenario);
+            PageReportFrontHeader.setTimeExecution(reportTotalTime);
             new PdfGenerator().generate(filePath, evidenceList, platformEnum, scenario);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }

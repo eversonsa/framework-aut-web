@@ -86,10 +86,11 @@ public class PageReportFrontHeader {
         table.addCell(timesOfExecution  + ".s");
         
 
-        PdfPCell c4 = new PdfPCell(new Phrase("Satus:"));
+        PdfPCell c4 = new PdfPCell(new Phrase("Status:"));
         c4.setHorizontalAlignment(Element.ALIGN_LEFT);
         c4.setPadding(5);
-        c4.setBackgroundColor(BaseColor.GREEN);
+        c4.setBackgroundColor(
+                scenario.getStatus().toString() == "PASSED" ? BaseColor.GREEN : BaseColor.RED);
         table.addCell(c4);
 
         PdfPCell c5 = new PdfPCell(new Phrase(statusColorTable(scenario)));
