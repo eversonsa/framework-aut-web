@@ -84,8 +84,7 @@ public class Report {
         LocalDateTime now = LocalDateTime.now();
         return dtf.format(now);
     }
-    
- 
+
 
     private static byte[] getByteImage() {
         byte[] image = null;
