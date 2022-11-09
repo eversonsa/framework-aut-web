@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><features version="1">
-    <feature name="Google" path="src\test\resources\features\Google.feature" started="1667910103509" tag="">
+    <feature name="Acesso Vitrine" path="src\test\resources\features\AcessoVitrine.feature" started="1667997555967" tag="">
         <file>
             <![CDATA[#language: pt
 #encoding: utf-8
-#@run
-Funcionalidade: Google
+#@acessoVitrine
 
-Contexto:
-   Dado que acesso Google
-@run
-Cenario: pesquiso o item
-   Quando pesquiso o item "Gatinhos"
-   Entao verifico as imagens]]>
+Funcionalidade: Acesso Vitrine
+
+Contexto: 
+	Dado que estou na página principal 
+@acessoVitrine
+	Cenario: Quando eu quero visualizar as informações do card Seguro Dental
+					Entao clico no botão Conhecer
+					Entao é exibida a Vitrine do Dental
+]]>
         </file>
         <scenarios>
-            <scenario name="pesquiso o item">
+            <scenario name="Quando eu quero visualizar as informações do card Seguro Dental">
                 <steps>
-                    <step duration="1732939100" name="Dado que acesso Google" status="passed"/>
-                    <step duration="2820125300" name="Quando pesquiso o item &quot;Gatinhos&quot;" status="passed"/>
-                    <step duration="1869700" name="Entao verifico as imagens" status="passed"/>
+                    <step duration="17065737600" name="Dado que estou na página principal" status="passed"/>
+                    <step duration="9343676800" name="Entao clico no botão Conhecer" status="passed"/>
+                    <step duration="5087603000" name="Entao é exibida a Vitrine do Dental" status="passed"/>
                 </steps>
             </scenario>
         </scenarios>

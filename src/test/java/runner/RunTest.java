@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "./src/test/resources/features",
         glue = {"steps"},
-        tags = " @run",
+        tags = "@acessoVitrine",
  //      tags = "@TID14023REV0.4.0",
 //        dryRun = true,
         monochrome = true,
