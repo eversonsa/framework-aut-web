@@ -22,4 +22,4 @@
 
 ## Mais informações
 
-https://confluence.bradescoseguros.com.br/pages/viewpage.action?pageId=81991303
+https://www.linkedin.com/in/everson-s-araujo-a8b3311a4/
